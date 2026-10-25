@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-bg: #0a0a0a;
+  --color-fg: #f5f5f4;
+  --color-muted: #a3a3a3;
+  --color-accent: #9b7bff;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Syne', ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --footer-h: 26rem;
+  color-scheme: dark;
+}
+
+html {
+  background: var(--color-bg);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Big name: sized so its longest word (--chars letters, ~1.2em each in Syne caps) fits the padded container. */
+.fit-name {
+  font-size: min(calc((100vw - 2rem) / (var(--chars) * 1.22)), 12rem);
+}
+@media (min-width: 768px) {
+  .fit-name {
+    font-size: min(calc((min(100vw - 5rem, 80rem)) / (var(--chars) * 1.22)), 12rem);
+  }
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
